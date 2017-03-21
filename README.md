@@ -1,5 +1,5 @@
 
-# Implement a Planning Search
+# Planning Search
 
 ## Synopsis
 
