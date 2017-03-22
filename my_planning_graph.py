@@ -408,8 +408,9 @@ class PlanningGraph():
         :param node_a2: PgNode_a
         :return: bool
         '''
-        return node_a1.action.args[0] in node_a2.action.effect_rem or \
-               node_a2.action.args[0] in node_a1.action.effect_rem
+        return not set(node_a1.action.effect_add).isdisjoint(set(node_a2.action.effect_rem)) or \
+                not set(node_a2.action.effect_add).isdisjoint(set(node_a1.action.effect_rem))
+
 
     def interference_mutex(self, node_a1: PgNode_a, node_a2: PgNode_a) -> bool:
         '''
